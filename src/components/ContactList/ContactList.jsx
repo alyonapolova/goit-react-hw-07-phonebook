@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact, fetchContacts } from 'redux/operations';
 import {
   getContacts,
+  getError,
   getIsLoading,
   selectorFilteredContacts,
 } from 'redux/selectors';
@@ -13,6 +14,7 @@ const ContactList = ({ item }) => {
   const dispatch = useDispatch();
   const contactList = useSelector(getContacts);
   const isLoading = useSelector(getIsLoading);
+  const error = useSelector(getError);
   const filteredContacts = useSelector(selectorFilteredContacts);
 
   useEffect(() => {
@@ -26,6 +28,7 @@ const ContactList = ({ item }) => {
   return (
     <>
       <Filter />
+      {error && <p>{error}</p>}
       {isLoading && <p>Loading...</p>}
       <ListUl>
         {filteredContacts.map(contact => (
