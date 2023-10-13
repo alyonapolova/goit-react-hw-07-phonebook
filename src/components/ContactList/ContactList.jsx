@@ -2,12 +2,12 @@ import Filter from 'components/Filter/Filter';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact, fetchContacts } from 'redux/operations';
-import { getContacts, getIsLoading } from 'redux/selectors';
+import { getContacts } from 'redux/selectors';
 
 const ContactList = () => {
   const dispatch = useDispatch();
   const contactList = useSelector(getContacts);
-  const isLoading = useSelector(getIsLoading);
+  //const isLoading = useSelector(getIsLoading);
   console.log(contactList);
 
   useEffect(() => {
