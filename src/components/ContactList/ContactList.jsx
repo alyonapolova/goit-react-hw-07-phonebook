@@ -8,7 +8,6 @@ const ContactList = () => {
   const dispatch = useDispatch();
   const contactList = useSelector(getContacts);
   //const isLoading = useSelector(getIsLoading);
-  console.log(contactList);
 
   useEffect(() => {
     dispatch(fetchContacts());
